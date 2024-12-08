@@ -1,19 +1,22 @@
 {
-	"name": "learning-react-coffee-delivery",
+	"name": "coffee-delivery-web",
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc -b && vite build",
-		"lint": "eslint .",
 		"preview": "vite preview",
 		"prepare": "husky",
 		"check": "biome check --write ./src"
 	},
 	"dependencies": {
+		"@remixicon/react": "4.5.0",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
+		"react-responsive": "10.0.0",
+		"react-router": "7.0.2",
+		"vite-plugin-webfont-dl": "3.10.3",
 		"vite-tsconfig-paths": "5.1.2"
 	},
 	"devDependencies": {
