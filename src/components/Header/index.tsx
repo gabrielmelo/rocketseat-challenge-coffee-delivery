@@ -5,8 +5,8 @@ import { Logo } from '../Logo'
 
 export function Header() {
 	return (
-		<div className="h-16 lg:h-28">
-			<div className="container py-8">
+		<div className="absolute top-0 h-16 w-full lg:h-28">
+			<div className="container py-4 md:py-8">
 				<div className="flex items-center justify-between">
 					<Logo />
 
