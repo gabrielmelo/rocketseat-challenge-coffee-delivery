@@ -2,6 +2,9 @@
 export default {
 	content: ['./index.html', './src/**/*.tsx'],
 	theme: {
+		fontFamily: {
+			sans: '"Baloo 2", sans-serif',
+		},
 		container: {
 			padding: {
 				DEFAULT: '1rem',

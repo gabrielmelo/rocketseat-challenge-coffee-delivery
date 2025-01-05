@@ -6,8 +6,6 @@ export function Hero() {
 		query: '(min-width: 1224px)',
 	})
 
-	console.log(isDesktopOrLaptop)
-
 	return (
 		<section
 			className="py-20 md:py-32"

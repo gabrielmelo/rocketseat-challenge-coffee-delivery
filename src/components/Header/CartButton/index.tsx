@@ -1,4 +1,4 @@
-import { RiShoppingCartFill } from '@remixicon/react'
+import { RiShoppingCartLine } from '@remixicon/react'
 
 interface CartButtonProps {
 	amount: number
@@ -10,7 +10,7 @@ export function CartButton({ amount }: CartButtonProps) {
 			type="button"
 			className="group relative flex h-10 w-10 items-center justify-center rounded bg-amber-200 transition-all duration-300 ease-linear hover:brightness-90"
 		>
-			<RiShoppingCartFill
+			<RiShoppingCartLine
 				size={18}
 				className="fill-amber-800 transition-all ease-linear group-hover:brightness-90"
 			/>

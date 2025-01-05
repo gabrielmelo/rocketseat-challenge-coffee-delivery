@@ -1,7 +1,11 @@
+import { FeacturedCoffee } from '@/components/FeacturedCoffee'
+import { Hero } from '@/components/Hero'
+
 export function Home() {
 	return (
-		<div className="container">
-			<h1>Home</h1>
-		</div>
+		<>
+			<Hero />
+			<FeacturedCoffee />
+		</>
 	)
 }
