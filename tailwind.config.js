@@ -13,7 +13,11 @@ export default {
 			},
 			center: true,
 		},
-		extend: {},
+		extend: {
+			backgroundColor: {
+				box: '#F3F2F2',
+			},
+		},
 	},
 	plugins: [],
 }

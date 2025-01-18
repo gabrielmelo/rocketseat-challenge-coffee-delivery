@@ -1,7 +1,6 @@
-import { useContext, useEffect, useState } from 'react'
-import { CardCoffee } from '../CardCoffee'
 import { api } from '@/lib/axios'
-import { CartContext } from '@/context/cart-context'
+import { useEffect, useState } from 'react'
+import { CardCoffee } from '../CoffeeCard'
 
 interface Coffee {
 	id: string
@@ -14,8 +13,6 @@ interface Coffee {
 }
 
 export function FeacturedCoffee() {
-	const { createItemToCart } = useContext(CartContext)
-
 	const [feacturedCoffee, setFeacturedCoffee] = useState<Coffee[]>([])
 
 	const fetchFeactureCoffee = async () => {
@@ -26,19 +23,7 @@ export function FeacturedCoffee() {
 
 	useEffect(() => {
 		fetchFeactureCoffee()
-	}, [])
-
-	function handleCreateItemToCart(data: Coffee) {
-		const { id, title, image, price, quantity } = data
-
-		createItemToCart({
-			id,
-			title,
-			image,
-			price,
-			quantity,
-		})
-	}
+	})
 
 	return (
 		<div className="py-8">
@@ -60,7 +45,6 @@ export function FeacturedCoffee() {
 								image={coffee.image}
 								tags={coffee.tags}
 								price={coffee.price}
-								onCreateItemToCart={handleCreateItemToCart}
 							/>
 						)
 					})}

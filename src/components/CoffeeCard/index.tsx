@@ -1,25 +1,21 @@
 import { priceFormatter } from '@/utils/formatter'
-import { Counter } from '../Counter'
-import { TagCoffee } from '../TagCoffee'
-import { useState } from 'react'
 import { RiShoppingCartLine } from '@remixicon/react'
 import { nanoid } from 'nanoid'
+import { useContext, useState } from 'react'
+import { Counter } from '../Counter'
+import { TagCoffee } from '../TagCoffee'
+import { CartContext } from '@/context/cart-context'
 
-interface CardCoffeeProps {
+interface CoffeeType {
 	id: string
 	title: string
 	description: string
 	image: string
 	price: number
+}
+
+interface CoffeeCardProps extends CoffeeType {
 	tags: Array<string>
-	onCreateItemToCart: ({
-		id,
-		title,
-		image,
-		description,
-		price,
-		quantity,
-	}: any) => void
 }
 
 export function CardCoffee({
@@ -29,8 +25,9 @@ export function CardCoffee({
 	image,
 	price,
 	tags,
-	onCreateItemToCart,
-}: CardCoffeeProps) {
+}: CoffeeCardProps) {
+	const { addItemToCart } = useContext(CartContext)
+
 	const [quantity, setQuantity] = useState(1)
 
 	function decrementQuantity() {
@@ -42,15 +39,13 @@ export function CardCoffee({
 	}
 
 	function handleCreateItemToCart() {
-		onCreateItemToCart({
+		addItemToCart({
 			id,
 			title,
 			image,
 			price,
 			quantity,
 		})
-
-		setQuantity(1)
 	}
 
 	return (

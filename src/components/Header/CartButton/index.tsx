@@ -1,14 +1,16 @@
 import { RiShoppingCartLine } from '@remixicon/react'
+import type { ButtonHTMLAttributes } from 'react'
 
-interface CartButtonProps {
+interface CartButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	amount: number
 }
 
-export function CartButton({ amount }: CartButtonProps) {
+export function CartButton({ amount, ...props }: CartButtonProps) {
 	return (
 		<button
 			type="button"
-			className="group relative flex h-10 w-10 items-center justify-center rounded bg-amber-200 transition-all duration-300 ease-linear hover:brightness-90"
+			className="group relative flex h-10 w-10 items-center justify-center rounded bg-amber-200 transition-all duration-300 ease-linear hover:brightness-90 disabled:cursor-not-allowed disabled:hover:brightness-100"
+			{...props}
 		>
 			<RiShoppingCartLine
 				size={18}

@@ -1,17 +1,14 @@
-import { createContext, useState, type ReactNode } from 'react'
-
-interface CoffeeToCart {
-	id: string
-	title: string
-	image: string
-	price: number
-	quantity: number
-}
+import { addItemToCartAction } from '@/reduces/items-cart/actions'
+import {
+	type ItemCartType,
+	itemsCartReducer,
+} from '@/reduces/items-cart/reduce'
+import { type ReactNode, createContext, useReducer } from 'react'
 
 interface CartContextType {
-	countItemsInCart: number
-	itemsInCart: CoffeeToCart[]
-	createItemToCart: (data: CoffeeToCart) => void
+	itemsCart: ItemCartType[]
+	quantityItems: number
+	addItemToCart: (data: ItemCartType) => void
 }
 
 interface CartProviderProps {
@@ -21,31 +18,47 @@ interface CartProviderProps {
 export const CartContext = createContext({} as CartContextType)
 
 export function CartProvider({ children }: CartProviderProps) {
-	const [itemsInCart, setNewItemsInCart] = useState<CoffeeToCart[]>([])
+	const [ItemsCartState, dispatch] = useReducer(itemsCartReducer, {
+		itemsCart: [],
+		order: null,
+	})
 
-	function createItemToCart(data: CoffeeToCart) {
-		const { id, title, image, price, quantity } = data
+	const { itemsCart } = ItemsCartState
 
-		setNewItemsInCart((state) => [
-			...state,
-			{
-				id,
-				title,
-				image,
-				price,
-				quantity,
-			},
-		])
+	function addItemToCart(itemToCart: ItemCartType) {
+		dispatch(addItemToCartAction(itemToCart))
+
+		// const itemAlreadyAdded = itemsCart.find((item) => item.id === data.id)
+		// if (!itemAlreadyAdded) {
+		// }
+
+		// const updateQuantity = itemsCart.map((item) => {
+		// 	if (item.id === data.id) {
+		// 		return {
+		// 			...item,
+		// 			quantity: item.quantity + data.quantity,
+		// 		}
+		// 	}
+
+		// 	return item
+		// })
+
+		// dispatch({
+		// 	type: 'ADD_ITEM_CART',
+		// 	payload: {
+		// 		data: updateQuantity,
+		// 	},
+		// })
 	}
 
-	const countItemsInCart = itemsInCart.length
+	const quantityItems = itemsCart.length
 
 	return (
 		<CartContext.Provider
 			value={{
-				countItemsInCart,
-				itemsInCart,
-				createItemToCart,
+				itemsCart,
+				quantityItems,
+				addItemToCart,
 			}}
 		>
 			{children}
