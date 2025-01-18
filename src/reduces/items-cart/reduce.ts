@@ -1,5 +1,5 @@
-import { produce } from "immer"
-import { ActonsTypes } from "./actions"
+import { produce } from 'immer'
+import { ActonsTypes } from './actions'
 
 export interface ItemCartType {
 	id: string
@@ -14,11 +14,20 @@ interface ItemsCartState {
 	order: null
 }
 
-export function itemsCartReducer(state: ItemsCartState, action: any) {
+interface ActionTypes {
+	type: ActonsTypes
+	payload: {
+		itemToCart: ItemCartType
+	}
+}
+
+export function itemsCartReducer(state: ItemsCartState, action: ActionTypes) {
 	switch (action.type) {
 		case ActonsTypes.ADD_ITEM_CART: {
 			return produce(state, (draft) => {
-				const itemCartAlreadyAdded = draft.itemsCart.find(item => item.id === action.payload.itemToCart.id)
+				const itemCartAlreadyAdded = draft.itemsCart.find(
+					(item) => item.id === action.payload.itemToCart.id,
+				)
 
 				if (itemCartAlreadyAdded) {
 					itemCartAlreadyAdded.quantity += action.payload.itemToCart.quantity

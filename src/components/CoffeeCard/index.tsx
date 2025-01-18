@@ -1,10 +1,10 @@
+import { CartContext } from '@/context/cart-context'
 import { priceFormatter } from '@/utils/formatter'
 import { RiShoppingCartLine } from '@remixicon/react'
 import { nanoid } from 'nanoid'
 import { useContext, useState } from 'react'
 import { Counter } from '../Counter'
 import { TagCoffee } from '../TagCoffee'
-import { CartContext } from '@/context/cart-context'
 
 interface CoffeeType {
 	id: string

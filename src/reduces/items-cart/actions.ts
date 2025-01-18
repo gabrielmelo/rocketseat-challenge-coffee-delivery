@@ -1,8 +1,8 @@
-import type { ItemCartType } from "./reduce";
+import type { ItemCartType } from './reduce'
 
 export enum ActonsTypes {
-	ADD_ITEM_CART = "ADD_ITEM_CART",
-	DELETE_ITEM_CASE = "DELETE_ITEM_CASE"
+	ADD_ITEM_CART = 'ADD_ITEM_CART',
+	DELETE_ITEM_CASE = 'DELETE_ITEM_CASE',
 }
 
 export function addItemToCartAction(itemToCart: ItemCartType) {
