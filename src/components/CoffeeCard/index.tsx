@@ -1,4 +1,5 @@
-import { CartContext } from '@/context/cart-context'
+import { ShoppingCartContext } from '@/context/shopping-cart-context'
+// import { CartContext } from '@/context/shopping-cart-context'
 import { priceFormatter } from '@/utils/formatter'
 import { RiShoppingCartLine } from '@remixicon/react'
 import { nanoid } from 'nanoid'
@@ -26,7 +27,7 @@ export function CardCoffee({
 	price,
 	tags,
 }: CoffeeCardProps) {
-	const { addItemToCart } = useContext(CartContext)
+	const { addItemToCart } = useContext(ShoppingCartContext)
 
 	const [quantity, setQuantity] = useState(1)
 
@@ -72,8 +73,8 @@ export function CardCoffee({
 			</div>
 
 			<div className="mt-9 flex items-center justify-between gap-7">
-				<div className="flex items-baseline gap-1 text-gray-600">
-					<b className="font-extrabold text-2xl">
+				<div className="flex items-baseline gap-1">
+					<b className="text-2xl text-neutral-800">
 						{priceFormatter.format(price)}
 					</b>
 				</div>
@@ -87,7 +88,7 @@ export function CardCoffee({
 
 					<button
 						type="button"
-						className="rounded bg-violet-600 p-3 transition-all duration-150 ease-linear hover:brightness-90"
+						className="flex h-9 items-center justify-center rounded bg-violet-600 p-3 transition-all duration-150 ease-linear hover:brightness-90"
 						onClick={handleCreateItemToCart}
 					>
 						<RiShoppingCartLine className="h-4 w-4 fill-white" />

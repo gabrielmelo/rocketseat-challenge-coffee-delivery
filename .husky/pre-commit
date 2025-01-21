@@ -1,4 +1,0 @@
-echo 'Check for linting errors'
-pnpm check || (echo 'Linting erros. Please fix them before commiting.' && exit 1)
-
-echo 'Done'

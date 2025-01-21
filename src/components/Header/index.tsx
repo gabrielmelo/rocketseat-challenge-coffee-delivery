@@ -1,13 +1,15 @@
+import { useContext } from 'react'
+
 import { Link } from 'react-router'
 import { Location } from '../Location'
+
+import { Logo } from '../Logo'
 import { CartButton } from './CartButton'
 
-import { CartContext } from '@/context/cart-context'
-import { useContext } from 'react'
-import { Logo } from '../Logo'
+import { ShoppingCartContext } from '@/context/shopping-cart-context'
 
 export function Header() {
-	const { quantityItems } = useContext(CartContext)
+	const { quantityItems } = useContext(ShoppingCartContext)
 
 	const isCartEmpty = quantityItems <= 0
 
@@ -21,7 +23,7 @@ export function Header() {
 
 					<div className="flex gap-2">
 						<Location city="Porto Alegre, RS" />
-						<Link to="/checkout">
+						<Link to="/shopping-cart">
 							<CartButton amount={quantityItems} disabled={isCartEmpty} />
 						</Link>
 					</div>

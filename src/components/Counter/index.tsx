@@ -10,7 +10,7 @@ export function Counter({ quantity, onDecrement, onIncrement }: CounterProps) {
 	const isDecrementButtonDisabled = quantity < 1
 
 	return (
-		<div className="flex h-10 w-[72px] items-center justify-center rounded-md bg-gray-200 px-2 py-3">
+		<div className="flex h-9 w-[72px] items-center justify-center rounded-md bg-gray-200 px-2 py-3">
 			<button
 				type="button"
 				className="p-1"
@@ -23,7 +23,7 @@ export function Counter({ quantity, onDecrement, onIncrement }: CounterProps) {
 				/>
 			</button>
 
-			<div className="w-6 px-1 text-center font-semibold text-gray-800 text-lg">
+			<div className="w-6 px-1 text-center font-semibold text-lg text-neutral-600">
 				{quantity}
 			</div>
 

@@ -4,15 +4,15 @@ import { BrowserRouter } from 'react-router'
 import './styles/main.css'
 
 import { Router } from './Router.tsx'
-import { CartProvider } from './context/cart-context.tsx'
+import { ShoppingCartProvider } from './context/shopping-cart-context.tsx'
 
 // biome-ignore lint: noUnusedVariables
 createRoot(document.getElementById('root')!).render(
 	<StrictMode>
 		<BrowserRouter>
-			<CartProvider>
+			<ShoppingCartProvider>
 				<Router />
-			</CartProvider>
+			</ShoppingCartProvider>
 		</BrowserRouter>
 	</StrictMode>,
 )
