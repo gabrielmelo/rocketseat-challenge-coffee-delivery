@@ -39,7 +39,7 @@ export function decrementItemQuantityActions(idItem: string) {
 
 export function incrementItemQuantityActions(idItem: string) {
 	return {
-		type: ActionsTypes.DELETE_ITEM_CASE,
+		type: ActionsTypes.INCREMENT_ITEM_QUANTITY,
 		payload: {
 			idItem,
 		},
