@@ -4,6 +4,7 @@ import type { ShoppingCartItemType } from './reduce'
 
 export enum ActionsTypes {
 	ADD_ITEM_CART = 'ADD_ITEM_CART',
+	ADD_ORDER = 'ADD_ORDER',
 	UPDATE_ITEM_QUANTITY = 'UPDATE_ITEM_QUANTITY',
 	DELETE_ITEM_CASE = 'DELETE_ITEM_CASE',
 	INCREMENT_ITEM_QUANTITY = 'INCREMENT_ITEM_QUANTITY',
@@ -52,5 +53,14 @@ export function deleteItemActions(idItem: string) {
 		payload: {
 			idItem,
 		},
+	}
+}
+
+export function addOrderActions(order: any) {
+	return {
+		type: ActionsTypes.ADD_ORDER,
+		payload: {
+			order,
+		}
 	}
 }

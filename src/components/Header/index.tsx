@@ -9,7 +9,7 @@ import { CartButton } from './CartButton'
 import { ShoppingCartContext } from '@/context/shopping-cart-context'
 
 export function Header() {
-	const { quantityItems } = useContext(ShoppingCartContext)
+	const { quantityItems, order } = useContext(ShoppingCartContext)
 
 	const isCartEmpty = quantityItems <= 0
 
@@ -22,7 +22,7 @@ export function Header() {
 					</Link>
 
 					<div className="flex gap-2">
-						<Location city="Porto Alegre, RS" />
+						<Location city={order.city} />
 						<Link to="/shopping-cart">
 							<CartButton amount={quantityItems} disabled={isCartEmpty} />
 						</Link>

@@ -10,7 +10,7 @@ export interface ShoppingCartItemType {
 
 interface ShoppingCartState {
 	items: ShoppingCartItemType[]
-	order: null
+	order: any
 }
 
 export function shoppingCartReduce(state: ShoppingCartState, action: any) {
@@ -67,6 +67,13 @@ export function shoppingCartReduce(state: ShoppingCartState, action: any) {
 				items: updateItemAfterIncreatementQuantity,
 			}
 		}
+
+		case ActionsTypes.ADD_ORDER:
+
+			return {
+				...state,
+				order: action.payload.order
+			}
 
 		default:
 			return state

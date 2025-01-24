@@ -1,7 +1,6 @@
-// import { shoppingCartReduce } from '@/reduces/shopping-cart/reduce'
 import {
-	ActionsTypes,
 	addItemActions,
+	addOrderActions,
 	decrementItemQuantityActions,
 	deleteItemActions,
 	incrementItemQuantityActions,
@@ -15,13 +14,14 @@ import { type ReactNode, createContext, useEffect, useReducer } from 'react'
 
 type ShoppingCartContextType = {
 	items: ShoppingCartItemType[]
-	order: null
+	order: null | any
 	quantityItems: number
 	addItemToCart: (itemToCart: ShoppingCartItemType) => void
 	decrementItemQuantity: (idItem: string) => void
 	incrementItemQuantity: (idItem: string) => void
 	updateItemQuantity: (idItem: string) => void
-	removeItemCart: (IdItem: string) => void
+	deleteItemCart: (IdItem: string) => void
+	addOrder: (order: any) => void
 }
 
 interface CartProviderProps {
@@ -31,12 +31,14 @@ interface CartProviderProps {
 export const ShoppingCartContext = createContext({} as ShoppingCartContextType)
 
 export function ShoppingCartProvider({ children }: CartProviderProps) {
+	const initialState = {
+		items: [],
+		order: {},
+	}
+	
 	const [itemsCartState, dispatch] = useReducer(
 		shoppingCartReduce,
-		{
-			items: [],
-			order: null,
-		},
+		initialState,
 		(initialState) => {
 			const localStorageStateJSON = localStorage.getItem(
 				'@coffee-delivery:items-cart-state',
@@ -55,6 +57,10 @@ export function ShoppingCartProvider({ children }: CartProviderProps) {
 
 		localStorage.setItem('@coffee-delivery:items-cart-state', stateJSON)
 	}, [itemsCartState])
+
+	function addOrder(order: any) {
+		dispatch(addOrderActions(order))
+	}
 
 	function addItemToCart(itemToCart: ShoppingCartItemType) {
 		dispatch(addItemActions(itemToCart))
@@ -90,7 +96,8 @@ export function ShoppingCartProvider({ children }: CartProviderProps) {
 				updateItemQuantity,
 				decrementItemQuantity,
 				incrementItemQuantity,
-				removeItemCart: deleteItemCart,
+				deleteItemCart,
+				addOrder,
 			}}
 		>
 			{children}
