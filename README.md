@@ -1,8 +1,10 @@
-Rocketseat Challenge - Coffee Delivery
+## Rocketseat Challenge - Coffee Delivery
 
 Nesse desafio, foi criado uma aplicação para gerenciar um carrinho de compras de uma cafeteria fictícia para o desafio prático na formação em React da Rocketseat.
 
-## Funcionalidades
+![Screenshot From 2025-03-05 19-20-52](https://github.com/user-attachments/assets/3a88d775-8612-4eb5-bac0-c837242e9705)
+
+## 🎯 Funcionalidades
 - Listagem de produtos (cafés) disponíveis para compra
 - Adicionar uma quantidade específicas de itens no carrinho
 - Aumentar ou remover a quantidade de itens no carrinho
@@ -10,7 +12,7 @@ Nesse desafio, foi criado uma aplicação para gerenciar um carrinho de compras 
 - Exibir o total de itens no carrinho no Header
 - Exibir o valor total da soma de itens no carrinho multiplicados pelo valor
 
-## Conceitos praticados
+## 👨‍🎓 Conceitos praticados
 - [Managing State](https://react.dev/learn/managing-state)
 - [Reducer](https://react.dev/learn/scaling-up-with-reducer-and-context)
 - [Context API](https://react.dev/learn/scaling-up-with-reducer-and-context)
@@ -19,33 +21,32 @@ Nesse desafio, foi criado uma aplicação para gerenciar um carrinho de compras 
   
 ## 🚀 From your command line:
 
+Clone this repository
 ```bash
-# Clone this repository
-$ git clone https://github.com/gabrielmelo/rocketseat-challenge-coffee-delivery
-
-# Go into the repository
-$ cd rocketseat-challenge-coffee-delivery
-
-# Install dependencies
-$ npm install
-
+git clone https://github.com/gabrielmelo/rocketseat-challenge-coffee-delivery
 ```
 
-### **Start JSON Server**
+Go into the repository
 ```bash
-# Started with
-$ npm dev server
+cd rocketseat-challenge-coffee-delivery
 ```
 
-### **Start App**
-```bash
-# Started with
-$ npm dev
+Install dependencies
+```
+npm install
 ```
 
-## 🛠️ Technologies used 
-This project is only possible thanks to the awesomeness of the following projects:
+### Start the JSON Server with
+```bash
+npm dev server
+```
 
+### Start the app with
+```bash
+npm dev
+```
+
+## 🛠️ Tecnologias utilizadas 
 - [React](https://reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [json-server](https://www.npmjs.com/package/json-server) 
