@@ -5,8 +5,8 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
-		"dev:server": "json-server db.json -p 3001",
 		"build": "tsc -b && vite build",
+		"server": "json-server db.json -p 3001",
 		"preview": "vite preview",
 		"prepare": "husky",
 		"check": "biome check --write ./src"
